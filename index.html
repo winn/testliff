@@ -13,8 +13,51 @@
       await liff.init({ liffId: "1656656612-7DmnEE4l" })
       await liff.shareTargetPicker([
         { 
-          "type": "text",
-          "text": "hello world"
+          "type": "flex",
+          "altText": "Flex Message",
+          "contents": {
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://4.bp.blogspot.com/-Ns-IEuSTuD4/V29tZiBEsvI/AAAAAAAAI_0/iCHvRUNukKICqgd6johAFTSOCGo6OrXPQCLcB/s1600/%25E0%25B8%2599%25E0%25B8%25B4%25E0%25B8%2597%25E0%25B8%25B2%25E0%25B8%2599%25E0%25B8%25AD%25E0%25B8%25B5%25E0%25B8%25AA%25E0%25B8%259B-%25E0%25B8%2581%25E0%25B8%25A3%25E0%25B8%25B0%25E0%25B8%2595%25E0%25B9%2588%25E0%25B8%25B2%25E0%25B8%25A2%25E0%25B8%2581%25E0%25B8%25B1%25E0%25B8%259A%25E0%25B9%2580%25E0%25B8%2595%25E0%25B9%2588%25E0%25B8%25B2.jpg",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "https://liff.line.me/1656656612-7DmnEE4l"
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "กระต่ายกับเต่า",
+        "weight": "bold",
+        "size": "xl"
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "uri",
+          "label": "share",
+          "uri": "https://liff.line.me/1656656612-7DmnEE4l"
+        },
+        "style": "primary"
+      }
+    ],
+    "flex": 0
+  }
+}
         }
         ])
       liff.closeWindow()
