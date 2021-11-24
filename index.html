@@ -11,6 +11,11 @@
   <script>
     async function main() {
       await liff.init({ liffId: "1656656612-7DmnEE4l" })
+      if (liff.isLoggedIn()) {
+          // Login แล้วจ้า
+      } else {
+        liff.login()
+      }
       await liff.shareTargetPicker([
         { 
           "type": "flex",
@@ -50,7 +55,7 @@
         "action": {
           "type": "uri",
           "label": "play",
-          "uri": "https://liff.line.me/1656651596-mJ6rzM1G"
+          "uri": "https://liff.line.me/1656651596-mJ6rzM1G?audiourl="
         },
         "style": "primary"
       },
