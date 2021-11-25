@@ -34,43 +34,72 @@
         "type":"flex",
         "altText":"This is a Flex Message",
         "contents":
-          {
-  "type": "bubble",
-  "footer": {
-    "contents": [
-      {
-        "action": {
-          "label": "play",
-          "type": "uri",
-          "uri": "https://liff.line.me/1656651596-mJ6rzM1G?audiourl="+aurl
-        },
-        "height": "sm",
-        "style": "link",
-        "type": "button"
-      },
-      {
-        "action": {
-          "label": title,
-          "type": "uri",
-          "uri": "https://liff.line.me/1656656612-7DmnEE4l?title="+title+"&audiourl="+aurl+"&imageurl"+iurl
-        },
-        "height": "sm",
-        "style": "link",
-        "type": "button"
-      },
-      {
-        "size": "sm",
-        "type": "spacer"
-      }
-    ],
-    "flex": 0,
-    "layout": "horizontal",
-    "spacing": "sm",
-    "type": "box"
-  }
-}
 
+        {
+          "type": "bubble",
+          "hero": {
+            "type": "image",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover",
+            "action": {
+              "type": "uri",
+              "uri": "http://linecorp.com/"
+            },
+            "url": iurl
+          },
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Brown Cafe",
+                "weight": "bold",
+                "size": "xl"
+              }
+            ]
+          },
+          "footer": {
+            "type": "box",
+            "layout": "horizontal",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "button",
+                "style": "primary",
+                "height": "sm",
+                "action": {
+                  "type": "uri",
+                  "label": "PLAY",
+                  "uri": "https://liff.line.me/1656651596-mJ6rzM1G?audiourl="+aurl
+                }
+              },
+              {
+                "type": "button",
+                "style": "secondary",
+                "height": "sm",
+                "action": {
+                  "type": "uri",
+                  "label": "SHARE",
+                  "uri": "https://liff.line.me/1656656612-7DmnEE4l?title="+title+"&audiourl="+aurl+"&imageurl"+iurl
+                }
+              }
+            ],
+            "flex": 0
+          }
         }
+
+
+      }
+
+
+
+
+
+
+
+
 
       var stext = {
         "type":"text",
