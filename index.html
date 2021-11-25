@@ -30,62 +30,43 @@
         liff.login()
       }
 
-      var flex = { 
-          "type": "flex",
-          "altText": "Flex Message",
-          "contents": {
+      var flex = 
+        {
   "type": "bubble",
-  "hero": {
-    "type": "image",
-    "url": iurl,
-    "size": "full",
-    "aspectRatio": "20:13",
-    "aspectMode": "cover",
-    "action": {
-      "type": "uri",
-      "uri": surl
-    }
-  },
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": title,
-        "weight": "bold",
-        "size": "xl"
-      }
-    ]
-  },
   "footer": {
-    "type": "box",
-    "layout": "horizontal",
-    "spacing": "sm",
     "contents": [
       {
-        "type": "button",
         "action": {
-          "type": "uri",
           "label": "play",
-          "uri": laurl
+          "type": "uri",
+          "uri": "https://liff.line.me/1656651596-mJ6rzM1G?audiourl=https://botnoi-dictionary.s3.amazonaws.com:443/3d61b5655c246bee979245629fd03892b8e314addd48c4bd07d1f416978a8e93_11192021070021.mp3"
         },
-        "style": "primary"
+        "height": "sm",
+        "style": "link",
+        "type": "button"
       },
       {
-        "type": "button",
         "action": {
-          "type": "uri",
           "label": "share",
-          "uri": surl
+          "type": "uri",
+          "uri": "https://liff.line.me/1656656612-7DmnEE4l?title=ทดสอบ&imageurl=https://www.brighttv.co.th/wp-content/uploads/2021/10/%E0%B8%9B%E0%B8%81%E0%B9%83%E0%B8%995-3.jpg&audiourl=https://botnoi-dictionary.s3.amazonaws.com:443/3d61b5655c246bee979245629fd03892b8e314addd48c4bd07d1f416978a8e93_11192021070021.mp3"
         },
-        "style": "secondary"
+        "height": "sm",
+        "style": "link",
+        "type": "button"
+      },
+      {
+        "size": "sm",
+        "type": "spacer"
       }
     ],
-    "flex": 0
+    "flex": 0,
+    "layout": "horizontal",
+    "spacing": "sm",
+    "type": "box"
   }
 }
-        }
+        
 
       var stext = {
         "type":"text",
