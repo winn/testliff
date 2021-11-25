@@ -9,6 +9,16 @@
 
   <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
   <script>
+    var url_string = window.location.href;
+    url_string = url_string.replace("liff.state=%3F","");
+    url_string = url_string.replaceAll("%3D","=");
+    url_string = url_string.replaceAll("%253A",":");
+    url_string = url_string.replaceAll("%252F","/");
+    var url = new URL(url_string);
+    var aurl = url.searchParams.get("audiourl");
+    var iurl = url.searchParams.get("imageurl");
+    var title = url.searchParams.get("title");
+
     async function main() {
       await liff.init({ liffId: "1656656612-7DmnEE4l" })
       if (liff.isLoggedIn()) {
@@ -16,21 +26,21 @@
       } else {
         liff.login()
       }
-      await liff.shareTargetPicker([
-        { 
+
+      var flex = { 
           "type": "flex",
           "altText": "Flex Message",
           "contents": {
   "type": "bubble",
   "hero": {
     "type": "image",
-    "url": "https://4.bp.blogspot.com/-Ns-IEuSTuD4/V29tZiBEsvI/AAAAAAAAI_0/iCHvRUNukKICqgd6johAFTSOCGo6OrXPQCLcB/s1600/%25E0%25B8%2599%25E0%25B8%25B4%25E0%25B8%2597%25E0%25B8%25B2%25E0%25B8%2599%25E0%25B8%25AD%25E0%25B8%25B5%25E0%25B8%25AA%25E0%25B8%259B-%25E0%25B8%2581%25E0%25B8%25A3%25E0%25B8%25B0%25E0%25B8%2595%25E0%25B9%2588%25E0%25B8%25B2%25E0%25B8%25A2%25E0%25B8%2581%25E0%25B8%25B1%25E0%25B8%259A%25E0%25B9%2580%25E0%25B8%2595%25E0%25B9%2588%25E0%25B8%25B2.jpg",
+    "url": iurl,
     "size": "full",
     "aspectRatio": "20:13",
     "aspectMode": "cover",
     "action": {
       "type": "uri",
-      "uri": "https://liff.line.me/1656656612-7DmnEE4l"
+      "uri": "https://liff.line.me/1656656612-7DmnEE4l?audiourl="+aurl+"&imageurl="+iurl+"&title="=title
     }
   },
   "body": {
@@ -39,7 +49,7 @@
     "contents": [
       {
         "type": "text",
-        "text": "กระต่ายกับเต่า",
+        "text": title,
         "weight": "bold",
         "size": "xl"
       }
@@ -55,7 +65,7 @@
         "action": {
           "type": "uri",
           "label": "play",
-          "uri": "https://liff.line.me/1656651596-mJ6rzM1G?audiourl="
+          "uri": "https://liff.line.me/1656651596-mJ6rzM1G?audiourl="+aurl
         },
         "style": "primary"
       },
@@ -64,7 +74,7 @@
         "action": {
           "type": "uri",
           "label": "share",
-          "uri": "https://liff.line.me/1656656612-7DmnEE4l"
+          "uri": "https://liff.line.me/1656656612-7DmnEE4l?audiourl="+aurl+"&imageurl="+iurl+"&title="=title
         },
         "style": "secondary"
       }
@@ -73,6 +83,12 @@
   }
 }
         }
+
+
+
+
+      await liff.shareTargetPicker([flex
+        
         ])
       liff.closeWindow()
     }
