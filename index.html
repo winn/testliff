@@ -31,6 +31,10 @@
       }
 
       var flex = {
+        "type":"flex",
+        "altText":"This is a Flex Message",
+        "contents":
+          {
   "type": "bubble",
   "footer": {
     "contents": [
@@ -65,7 +69,8 @@
     "type": "box"
   }
 }
-        
+
+        }
 
       var stext = {
         "type":"text",
@@ -75,7 +80,7 @@
 
 
 
-      await liff.shareTargetPicker([stext,JSON.stringify(flex)
+      await liff.shareTargetPicker([stext,flex
         
         ])
       liff.closeWindow()
