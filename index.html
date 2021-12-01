@@ -3,106 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-  <title>Winn LIFF app</title>
+  <title>send message</title>
 </head>
 <body>
 
-  <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.17.0/sdk.js"></script>
   <script>
-    var url_string = window.location.href;
-    url_string = url_string.replace("liff.state=%3F","");
-    url_string = url_string.replaceAll("%3D","=");
-    url_string = url_string.replaceAll("%253A",":");
-    url_string = url_string.replaceAll("%252F","/");
-    var url = new URL(url_string);
-    var aurl = url.searchParams.get("audiourl");
-    var iurl = url.searchParams.get("imageurl");
-
-    var title = url.searchParams.get("title");
-    var surl = "https://liff.line.me/1656656612-7DmnEE4l?audiourl=" + aurl + "&imageurl=" + iurl + "&title=" + title;
-    var laurl = "https://liff.line.me/1656651596-mJ6rzM1G?audiourl=" + aurl;
-
-    async function main() {
-      await liff.init({ liffId: "1656656612-7DmnEE4l" })
-      if (liff.isLoggedIn()) {
-          // Login แล้วจ้า
-      } else {
-        liff.login()
-      }
-
-      var flex = {
-        "type":"flex",
-        "altText":"This is a Flex Message",
-        "contents":
-
-        {
-          "type": "bubble",
-          "hero": {
-            "type": "image",
-            "size": "full",
-            "aspectRatio": "20:13",
-            "aspectMode": "cover",
-            "action": {
-              "type": "uri",
-              "uri": "https://liff.line.me/1488827638-0BgWgy3y"
-            },
-            "url": iurl
-          },
-          "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": title,
-                "weight": "bold",
-                "size": "xl"
-              }
-            ]
-          },
-          "footer": {
-            "type": "box",
-            "layout": "horizontal",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "button",
-                "style": "primary",
-                "height": "sm",
-                "action": {
-                  "type": "uri",
-                  "label": "PLAY",
-                  "uri": "https://liff.line.me/1656651596-mJ6rzM1G?audiourl="+aurl
-                }
-              },
-              {
-                "type": "button",
-                "style": "secondary",
-                "height": "sm",
-                "action": {
-                  "type": "uri",
-                  "label": "SHARE",
-                  "uri": "https://liff.line.me/1656656612-7DmnEE4l?title="+title+"&audiourl="+aurl+"&imageurl="+iurl
-                }
-              }
-            ],
-            "flex": 0
-          }
-        }
-
-
-      }
-
-      // var stext = {
-      //   "type":"text",
-      //   "text":JSON.stringify(flex)
-      // }
-
-      await liff.shareTargetPicker([flex])
-      liff.closeWindow()
+  async function main() {
+    await liff.init({ liffId: "1656656612-7DmnEE4l" })
+    if (liff.isLoggedIn()) {
+        // Login แล้วจ้า
+    } else {
+      liff.login()
     }
-    main()
+    liff.sendMessages([
+      {
+        type: 'text',
+        text: 'helloworld'
+      }
+    ])
+    liff.closeWindow()
+  }
+  main()
   </script>
-
 </body>
 </html>
